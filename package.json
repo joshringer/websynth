@@ -1,0 +1,20 @@
+{
+  "name": "websynth",
+  "version": "1.0.0",
+  "description": "WebAudio Experiments",
+  "main": "app.js",
+  "repository": "https://github.com/joshringer/soundscape",
+  "author": "Joshua Ringer <joshringer@users.noreply.github.com>",
+  "license": "Unlicense",
+  "scripts": {
+    "test": "standard --fix \"src/**/*.js\" webpack.config.js",
+    "build": "webpack -p",
+    "watch": "webpack --progress --watch",
+    "start": "webpack-dev-server --open"
+   },
+  "devDependencies": {
+    "standard": "*",
+    "webpack": "^3.4.0",
+    "webpack-dev-server": "^2.6.1"
+  }
+}
