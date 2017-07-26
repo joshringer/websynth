@@ -13,10 +13,10 @@ h1 {
   text-align: center;
 }
 .keyboard .row2 {
-  padding-right: 60px;
+  padding-left: 40px;
 }
 .keyboard .row3 {
-  padding-right: 80px;
+  padding-left: 40px;
 }
 
 .keyboard .key {
