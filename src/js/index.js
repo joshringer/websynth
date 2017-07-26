@@ -1,6 +1,10 @@
 import $ from 'jquery'
 
 var ctx = new (window.AudioContext || window.webkitAudioContext)()
+var masterVolume = ctx.createGain()
+
+masterVolume.gain.value = 0.3
+masterVolume.connect(ctx.destination)
 
 function setAudioParam (param, value) {
   // console.log('setAudioParam', param, value)
@@ -8,33 +12,52 @@ function setAudioParam (param, value) {
   else if (value < param.minValue) value = param.minValue
   else if (value > param.maxValue) value = param.maxValue
   param.value = value
+  return param.value
 }
 
-function configureOscillator (el) {
-  var osc = $(el).data('osc')
-  osc.type = $(el).find('.type').text()
-  setAudioParam(osc.frequency, $(el).find('.freq').text())
-  setAudioParam(osc.detune, $(el).find('.detune').text())
-}
-
-$('.key[data-type=oscillator]').each(function (_, el) {
-  var osc = ctx.createOscillator()
-  var vol = ctx.createGain()
-  osc.connect(vol)
-  vol.connect(ctx.destination)
+function createOscillator (el) {
+  // instantiate nodes and bind to el
+  var osc = $(el).data('osc') || ctx.createOscillator()
+  var vol = $(el).data('vol') || ctx.createGain()
   $(el).data({ osc: osc, vol: vol })
-  configureOscillator(el)
-  vol.gain.value = 0
+  // set initial values
+  updateOscillator(el, 'type', $(el).find('.type').text())
+  updateOscillator(el, 'frequency', $(el).find('.frequency').text())
+  updateOscillator(el, 'detune', $(el).find('.detune').text())
+  updateOscillator(el, 'gain', $(el).find('.gain').text())
+  // connect to audio pipeline and start oscillator
+  osc.connect(vol)
+  vol.connect(masterVolume)
   osc.start()
-})
+}
+
+function updateOscillator (el, property, value) {
+  var node = $(el).data((property === 'gain') ? 'vol' : 'osc')
+  var newValue
+  console.log('update', node, property, node[property], 'to', value)
+  if (node[property] instanceof window.AudioParam) {
+    newValue = setAudioParam(node[property], value)
+  } else {
+    node[property] = value
+    newValue = node[property]
+  }
+  $(el).find('.' + property).text(newValue)
+}
+
+function destroyOscillator (el) {
+  // stop oscillator
+  $(el).data('osc').stop()
+  // delete nodes
+  $(el).removeData(['osc', 'vol'])
+}
 
 $(window).keydown(function (ev) {
   // console.log('down', ev.which)
   $('.key[data-keycode=' + ev.which + ']').each(function (_, el) {
-    setAudioParam($(el).data('vol').gain, $(el).find('.vol').text() / 100)
+    createOscillator(el)
   })
 }).keyup(function (ev) {
   $('.key[data-keycode=' + ev.which + ']').each(function (_, el) {
-    $(el).data('vol').gain.value = 0
+    destroyOscillator(el)
   })
 })
