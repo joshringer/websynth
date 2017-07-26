@@ -258,6 +258,27 @@
           </p>
         </div>
       </div>
+    </div>
+    <div class="controls">
+      <div class="volume">
+        <button class="key" data-keycode="173">-</button>
+        <input id="mastervolume" type="number" min="0" max="11" value="3">
+        <button class="key" data-keycode="61">+</button>
+        <div id="mastervolumedisplay" class="vmeter">
+          <span class="low" data-level="1"></span>
+          <span class="low" data-level="2"></span>
+          <span class="low" data-level="3"></span>
+          <span class="low" data-level="4"></span>
+          <span class="mid" data-level="5"></span>
+          <span class="mid" data-level="6"></span>
+          <span class="mid" data-level="7"></span>
+          <span class="high" data-level="8"></span>
+          <span class="high" data-level="9"></span>
+          <span class="high" data-level="10"></span>
+          <span class="overdrive" data-level="11"></span>
+        </div>
+      </div>
+    </div>
     <script type="text/javascript" src="app.js"></script>
   </body>
 </html>
