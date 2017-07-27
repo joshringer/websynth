@@ -8,14 +8,16 @@
   "license": "Unlicense",
   "scripts": {
     "test": "standard --fix \"src/**/*.js\" *.config.js",
-    "build": "standard --fix \"src/**/*.js\" *.config.js && webpack -p && postcss src/css/index.css > style.css",
-    "watchcss": "postcss src/css/index.css --watch > style.css",
+    "build": "standard --fix \"src/**/*.js\" *.config.js && webpack -p && postcss src/css/index.css -o style.css",
+    "watchcss": "postcss src/css/index.css --watch -o style.css",
     "watchjs": "webpack --progress --watch",
     "start": "webpack-dev-server --open"
   },
   "devDependencies": {
     "cssnano": "^3.10.0",
     "postcss-cli": "^4.1.0",
+    "postcss-cssnext": "^3.0.2",
+    "postcss-import": "^10.0.0",
     "standard": "*",
     "webpack": "^3.4.0",
     "webpack-dev-server": "^2.6.1"

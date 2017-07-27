@@ -1,3 +1,7 @@
+@import 'keyboard.css';
+@import 'controls.css';
+
+
 h1 {
   text-align: center;
 }
@@ -7,33 +11,9 @@ h1 {
 }
 .controls {
   margin-top: 2%;
-}
-
-.keyboard .row {
   text-align: center;
 }
-.keyboard .row2 {
-  padding-left: 40px;
-}
-.keyboard .row3 {
-  padding-left: 40px;
-}
 
-.keyboard .key {
-  display: inline-block;
-  height: 60px;
-  width: 60px;
-  padding: 8px;
-  margin: 8px;
-  text-align: left;
-  overflow: hidden;
-}
-.keyboard .key h3 {
-  margin: 4px;
-}
-.keyboard .key p {
-  font-size: 10px;
-}
 
 .key {
   border: outset 2px gray;
@@ -42,38 +22,4 @@ h1 {
 }
 .key.pressed {
   border-style: inset;
-}
-
-.volume .key {
-  height: 20px;
-  width: 20px;
-  padding: 2px;
-  box-sizing: content-box;
-}
-.volume input {
-  width: 3rem;
-}
-.vmeter {
-  padding: 4px;
-}
-.vmeter span {
-  display: inline-block;
-  border: solid 1px lightgray;
-  height: 12px;
-  width: 4px;
-}
-.vmeter span.overdrive {
-  width: 6px;
-}
-.vmeter .on.low {
-  background: #7f7;
-}
-.vmeter .on.mid {
-  background: #ff0;
-}
-.vmeter .on.high {
-  background: #fa3;
-}
-.vmeter .on.overdrive {
-  background: #f00;
 }

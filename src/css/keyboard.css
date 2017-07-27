@@ -1,0 +1,25 @@
+.keyboard .row {
+  text-align: center;
+}
+.keyboard .row2 {
+  padding-left: 40px;
+}
+.keyboard .row3 {
+  padding-left: 40px;
+}
+
+.keyboard .key {
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  padding: 8px;
+  margin: 8px;
+  text-align: left;
+  overflow: hidden;
+}
+.keyboard .key h3 {
+  margin: 4px;
+}
+.keyboard .key p {
+  font-size: 10px;
+}
