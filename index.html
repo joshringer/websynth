@@ -297,6 +297,42 @@
           <span class="overdrive" data-level="11"></span>
         </div>
       </div>
+      <div class="control oscillator">
+        <h2>Oscillator Configuration</h2>
+        <div class="type">
+          <p>
+            <label for="oscillatortype">Type</label>
+            <select id="oscillatortype">
+              <option value="sine">Sine</option>
+              <option value="square">Square</option>
+              <option value="sawtooth">Sawtooth</option>
+              <option value="triangle" selected>Triangle</option>
+              <option value="custom">Custom</option>
+            </select>
+          </p>
+          <p>
+            <label for="customoscparam0">Custom Parameters</label>
+            <table id="customoscillator" class="customparams">
+              <tr>
+                <th>Real Coefficients</th>
+                <td><input id="customoscparam0" data-param="real" value="0"></td>
+                <td><input data-param="real" value="0"></td>
+                <td><input data-param="real" value="0"></td>
+                <td><input data-param="real" value="0"></td>
+                <td><input data-param="real" value="0"></td>
+              </tr>
+              <tr>
+                <th>Imaginary Coefficients</th>
+                <td><input data-param="imag" value="1"></td>
+                <td><input data-param="imag" value="1"></td>
+                <td><input data-param="imag" value="1"></td>
+                <td><input data-param="imag" value="1"></td>
+                <td><input data-param="imag" value="1"></td>
+              </tr>
+            </table>
+          </p>
+        </div>
+      </div>
     </div>
     <script type="text/javascript" src="app.js"></script>
   </body>
