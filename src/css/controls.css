@@ -1,50 +1,60 @@
-.controls .control {
-  display: inline-block;
-}
-.controls .volume {
-  width: 240px;
-}
-.controls .oscillator {
-  width: 360px;
-}
+.controls {
+  & .control {
+    display: inline-block;
+  }
 
-.controls .volume .key {
-  height: 20px;
-  width: 20px;
-  padding: 2px;
-  box-sizing: content-box;
-}
-.controls .volume input {
-  width: 3rem;
-}
-.controls .volume .meter {
-  padding: 4px;
-}
-.controls .volume .meter span {
-  display: inline-block;
-  border: solid 1px lightgray;
-  height: 12px;
-  width: 4px;
-}
-.controls .volume .meter span.overdrive {
-  width: 6px;
-}
-.controls .volume .meter .on.low {
-  background: #7f7;
-}
-.controls .volume .meter .on.mid {
-  background: #ff0;
-}
-.controls .volume .meter .on.high {
-  background: #fa3;
-}
-.controls .volume .meter .on.overdrive {
-  background: #f00;
-}
+  & .volume {
+    width: 240px;
 
-.controls .oscillator .customparams th {
-  text-align: right;
-}
-.controls .oscillator .customparams input {
-  width: 2rem;
+    & .key {
+      height: 20px;
+      width: 20px;
+      padding: 2px;
+      box-sizing: content-box;
+    }
+    & input {
+      width: 3rem;
+    }
+
+    & .meter {
+      padding: 4px;
+
+      & span {
+        display: inline-block;
+        border: solid 1px lightgray;
+        height: 12px;
+        width: 4px;
+
+        &.overdrive {
+          width: 6px;
+        }
+      }
+
+      & .on.low {
+        background: #7f7;
+      }
+      & .on.mid {
+        background: #ff0;
+      }
+      & .on.high {
+        background: #fa3;
+      }
+      & .on.overdrive {
+        background: #f00;
+      }
+    }
+  }
+
+  & .oscillator {
+    width: 360px;
+
+    & .customparams {
+      & th {
+        text-align: right;
+      }
+      & input {
+        width: 2rem;
+      }
+    }
+  }
 }

@@ -19,7 +19,8 @@ h1 {
   border: outset 2px gray;
   border-radius: 4px;
   background: white;
-}
-.key.pressed {
-  border-style: inset;
+
+  &.pressed {
+    border-style: inset;
+  }
 }
