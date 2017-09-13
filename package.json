@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "WebAudio Experiments",
   "main": "app.js",
-  "repository": "https://github.com/joshringer/soundscape",
+  "repository": "https://github.com/joshringer/websynth",
   "author": "Joshua Ringer <joshringer@users.noreply.github.com>",
   "license": "Unlicense",
   "scripts": {
