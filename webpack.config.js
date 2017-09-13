@@ -1,16 +1,31 @@
 const path = require('path')
 
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const HtmlPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  entry: './src/js/index.js',
+  entry: {
+    'app': './src/js/index.js'
+  },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'app.js'
+    filename: '[name]-[chunkhash].js'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract([
+          { loader: 'css-loader', options: { importLoaders: 1 } },
+          'postcss-loader'
+        ])
+      }
+    ]
   },
   devtool: 'source-map',
   plugins: [
-    new HtmlWebpackPlugin({
+    new ExtractTextPlugin('[name]-[contenthash].css'),
+    new HtmlPlugin({
       title: 'WebAudio Experiments',
       template: 'src/ejs/index.ejs'
     })
