@@ -1,11 +1,17 @@
 .controls {
+  display: flex;
+
   & .control {
-    display: inline-block;
+    flex: auto;
+    margin: 0 1em;
+    text-align: center;
+
+    & .control-block {
+      margin: 0.5em 0;
+    }
   }
 
   & .volume {
-    width: 240px;
-
     & .key {
       height: 20px;
       width: 20px;
@@ -46,9 +52,9 @@
   }
 
   & .oscillator {
-    width: 360px;
-
     & .customparams {
+      margin: auto;
+
       & th {
         text-align: right;
       }
