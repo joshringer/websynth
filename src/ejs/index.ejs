@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>WebAudio Experiments</title>
+    <title><%= htmlWebpackPlugin.options.title %></title>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
@@ -280,60 +280,59 @@
     <div class="controls">
       <div class="control volume">
         <h2>Master Volume</h2>
-        <button class="key" data-keycode="173">-</button>
-        <input id="mastervolume" type="number" min="0" max="11" value="3">
-        <button class="key" data-keycode="61">+</button>
-        <div id="mastervolumedisplay" class="meter">
-          <span class="low" data-level="1"></span>
-          <span class="low" data-level="2"></span>
-          <span class="low" data-level="3"></span>
-          <span class="low" data-level="4"></span>
-          <span class="mid" data-level="5"></span>
-          <span class="mid" data-level="6"></span>
-          <span class="mid" data-level="7"></span>
-          <span class="high" data-level="8"></span>
-          <span class="high" data-level="9"></span>
-          <span class="high" data-level="10"></span>
-          <span class="overdrive" data-level="11"></span>
+        <div class="control-block">
+          <button class="key" data-keycode="173">-</button>
+          <input id="mastervolume" type="number" min="0" max="11" value="3">
+          <button class="key" data-keycode="61">+</button>
+          <div id="mastervolumedisplay" class="meter">
+            <span class="low" data-level="1"></span>
+            <span class="low" data-level="2"></span>
+            <span class="low" data-level="3"></span>
+            <span class="low" data-level="4"></span>
+            <span class="mid" data-level="5"></span>
+            <span class="mid" data-level="6"></span>
+            <span class="mid" data-level="7"></span>
+            <span class="high" data-level="8"></span>
+            <span class="high" data-level="9"></span>
+            <span class="high" data-level="10"></span>
+            <span class="overdrive" data-level="11"></span>
+          </div>
         </div>
       </div>
       <div class="control oscillator">
         <h2>Oscillator Configuration</h2>
-        <div class="type">
-          <p>
-            <label for="oscillatortype">Type</label>
-            <select id="oscillatortype">
-              <option value="sine">Sine</option>
-              <option value="square">Square</option>
-              <option value="sawtooth">Sawtooth</option>
-              <option value="triangle" selected>Triangle</option>
-              <option value="custom">Custom</option>
-            </select>
-          </p>
-          <p>
-            <label for="customoscparam0">Custom Parameters</label>
-            <table id="customoscillator" class="customparams">
-              <tr>
-                <th>Real Coefficients</th>
-                <td><input id="customoscparam0" data-param="real" value="0"></td>
-                <td><input data-param="real" value="0"></td>
-                <td><input data-param="real" value="0"></td>
-                <td><input data-param="real" value="0"></td>
-                <td><input data-param="real" value="0"></td>
-              </tr>
-              <tr>
-                <th>Imaginary Coefficients</th>
-                <td><input data-param="imag" value="1"></td>
-                <td><input data-param="imag" value="1"></td>
-                <td><input data-param="imag" value="1"></td>
-                <td><input data-param="imag" value="1"></td>
-                <td><input data-param="imag" value="1"></td>
-              </tr>
-            </table>
-          </p>
+        <div class="control-block">
+          <label for="oscillatortype">Type</label>
+          <select id="oscillatortype">
+            <option value="sine">Sine</option>
+            <option value="square">Square</option>
+            <option value="sawtooth">Sawtooth</option>
+            <option value="triangle" selected>Triangle</option>
+            <option value="custom">Custom</option>
+          </select>
+        </div>
+        <div class="control-block">
+          <label for="customoscparam0">Custom Parameters</label>
+          <table id="customoscillator" class="customparams">
+            <tr>
+              <th>Real Coefficients</th>
+              <td><input id="customoscparam0" data-param="real" value="0"></td>
+              <td><input data-param="real" value="0"></td>
+              <td><input data-param="real" value="0"></td>
+              <td><input data-param="real" value="0"></td>
+              <td><input data-param="real" value="0"></td>
+            </tr>
+            <tr>
+              <th>Imaginary Coefficients</th>
+              <td><input data-param="imag" value="1"></td>
+              <td><input data-param="imag" value="1"></td>
+              <td><input data-param="imag" value="1"></td>
+              <td><input data-param="imag" value="1"></td>
+              <td><input data-param="imag" value="1"></td>
+            </tr>
+          </table>
         </div>
       </div>
     </div>
-    <script type="text/javascript" src="app.js"></script>
   </body>
 </html>
